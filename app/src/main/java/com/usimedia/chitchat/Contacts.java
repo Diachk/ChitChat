@@ -42,6 +42,33 @@ public class Contacts extends AppCompatActivity {
     private Set<String> contactNumbers;
     private ListView contactListView;
 
+
+    private class contactResolverTask extends AsyncTask<String, Void, List<String>> {
+        @Override
+        protected List<String> doInBackground(String... params) {
+            List<String> phoneNumbers = Arrays.asList(params);
+
+            try {
+                return getContacts(phoneNumbers);
+            } catch (JSONException e) {
+                Log.d("Contacts" , "Json parser exception");
+                e.printStackTrace();
+                return Collections.emptyList();
+            } catch (IOException e) {
+                Log.d("Contacts" , "Network Exception");
+                e.printStackTrace();
+                return Collections.emptyList();
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(List<String> names) {
+            super.onPostExecute(names);
+            setValuesToUiListView(names);
+        }
+    }
+
     private List<String> getContacts(List<String> phoneNumbers) throws JSONException, IOException {
 
         JSONArray jsonNumbers = new JSONArray(phoneNumbers);
@@ -141,31 +168,6 @@ public class Contacts extends AppCompatActivity {
         contactListView.setAdapter(contactListAdapter);
     }
 
-    private class contactResolverTask extends AsyncTask<String, Void, List<String>> {
-        @Override
-        protected List<String> doInBackground(String... params) {
-            List<String> phoneNumbers = Arrays.asList(params);
-
-            try {
-                return getContacts(phoneNumbers);
-            } catch (JSONException e) {
-                Log.d("Contacts" , "Json parser exception");
-                e.printStackTrace();
-                return Collections.emptyList();
-            } catch (IOException e) {
-                Log.d("Contect" , "Network Exception");
-                e.printStackTrace();
-                return Collections.emptyList();
-            }
-
-        }
-
-        @Override
-        protected void onPostExecute(List<String> names) {
-            super.onPostExecute(names);
-            setValuesToUiListView(names);
-        }
-    }
 
     @Override
     protected void onResume() {
