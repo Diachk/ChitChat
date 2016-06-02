@@ -28,12 +28,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Contacts.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Contacts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Contacts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24336283">
-              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,16 +44,16 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Login.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="54" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="54" />
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.30973452">
               <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <element signature="e#404#422#0" expanded="true" />
@@ -1783,7 +1785,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464863528940</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="push test">
+      <created>1464864495326</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1464864495326</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1824,10 +1832,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added request to contacts api" />
     <MESSAGE value="Fields modifiers to private" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fields modifiers to private" />
+    <MESSAGE value="push test" />
+    <option name="LAST_COMMIT_MESSAGE" value="push test" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -1835,18 +1846,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Contacts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#404#422#0" expanded="true" />
-            <element signature="e#543#561#0" expanded="true" />
-            <element signature="e#665#698#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1854,16 +1865,20 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="54" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="54" />
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Contacts.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24336283">
-          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="0.30973452">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#404#422#0" expanded="true" />
+            <element signature="e#543#561#0" expanded="true" />
+            <element signature="e#665#698#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
