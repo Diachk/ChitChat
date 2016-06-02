@@ -13,15 +13,65 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class Contacts extends AppCompatActivity {
+
+    private static final String CONTACTS_SERVICE_URL = "http:192.168.1.3:8000/api/contacts";
+    private  static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final OkHttpClient HTTP_CLIENT = new OkHttpClient();
 
     int numberOfContact;
     Set<String> contactNumbers;
+
+    private List<String> getContacts(List<String> phoneNumbers) throws JSONException, IOException {
+
+        JSONArray jsonNumbers = new JSONArray(phoneNumbers);
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("numbers", jsonNumbers);
+
+        String rawResult = post(CONTACTS_SERVICE_URL, jsonRequest.toString());
+
+        JSONObject jsonResult = new JSONObject(rawResult);
+        JSONArray jsonContacts = jsonResult.getJSONArray("contacts");
+
+        final List<String> contactList = new ArrayList<>();
+        if(null != jsonContacts) {
+
+            for (int i=0; i<jsonContacts.length(); i++){
+                contactList.add(jsonContacts.getJSONObject(i).getString("name"));
+            }
+        }
+
+        return contactList;
+    }
+
+    private String post(String url, String json) throws IOException {
+
+        RequestBody body = RequestBody.create(JSON, json);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+        Response response = HTTP_CLIENT.newCall(request).execute();
+
+        return response.body().string();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +79,6 @@ public class Contacts extends AppCompatActivity {
         setContentView(R.layout.activity_contacts);
 
         ListView contactListView = (ListView) findViewById(R.id.contact_ativity_contact_list);
-
-
-
-
-
 
         ContentResolver contentResolver = getContentResolver();
 
@@ -56,7 +101,7 @@ public class Contacts extends AppCompatActivity {
 
         contactNumbers = new HashSet<>();
 
-        String number = null;
+        String number;
 
         while (cursor.moveToNext())
         {
