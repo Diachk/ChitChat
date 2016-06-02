@@ -32,11 +32,11 @@ import okhttp3.Response;
 public class Contacts extends AppCompatActivity {
 
     private static final String CONTACTS_SERVICE_URL = "http:192.168.1.3:8000/api/contacts";
-    private  static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final OkHttpClient HTTP_CLIENT = new OkHttpClient();
 
-    int numberOfContact;
-    Set<String> contactNumbers;
+    private int numberOfContact;
+    private Set<String> contactNumbers;
 
     private List<String> getContacts(List<String> phoneNumbers) throws JSONException, IOException {
 
