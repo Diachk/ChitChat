@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Cheick/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.1/19047bdb6a4fc00a44124f64ca98e88fc204e7e3/okhttp-3.3.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
+        <dex dex="/Users/Cheick/Documents/dev/android-workspace/ChitChat2/app/build/intermediates/pre-dexed/debug/okhttp-3.3.1-125c818cb29fcfa98ed10d164ec54fa1dd11f62c.jar" />
+    </item>
+    <item
+        jar="/Users/Cheick/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/Cheick/Documents/dev/android-workspace/ChitChat2/app/build/intermediates/pre-dexed/debug/okio-1.8.0-4f9d728b3b6861459c791b503c6539a4b0709590.jar" />
+    </item>
+
+</items>

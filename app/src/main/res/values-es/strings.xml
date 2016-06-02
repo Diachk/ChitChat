@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChitChat</string>
+
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="title_activity_contacts">Contactos</string>
+    <string name="login_activity_hi">Hola</string>
+    <string name="login_activity_email">Email</string>
+    <string name="login_activity_password">Contraseña</string>
+    <string name="login_activity_login">Iniciar sesión</string>
+</resources>
