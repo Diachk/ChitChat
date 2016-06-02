@@ -2,4 +2,6 @@
 git_user_fix.sh
 
 #idea
+.idea/
+
 .idea/workspace.xml
