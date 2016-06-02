@@ -3,6 +3,7 @@ package com.usimedia.chitchat;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,6 +40,7 @@ public class Contacts extends AppCompatActivity {
 
     private int numberOfContact;
     private Set<String> contactNumbers;
+    private ListView contactListView;
 
     private List<String> getContacts(List<String> phoneNumbers) throws JSONException, IOException {
 
@@ -47,14 +51,19 @@ public class Contacts extends AppCompatActivity {
         String rawResult = post(CONTACTS_SERVICE_URL, jsonRequest.toString());
 
         JSONObject jsonResult = new JSONObject(rawResult);
+
         JSONArray jsonContacts = jsonResult.getJSONArray("contacts");
 
-        final List<String> contactList = new ArrayList<>();
-        if(null != jsonContacts) {
+        Log.d("Contacts" , "Number of contacts received from backend = " + jsonContacts.length());
 
-            for (int i=0; i<jsonContacts.length(); i++){
-                contactList.add(jsonContacts.getJSONObject(i).getString("name"));
-            }
+        final List<String> contactList = new ArrayList<>();
+
+        String currentContactName;
+
+        for (int i=0; i<jsonContacts.length(); i++){
+            currentContactName = jsonContacts.getJSONObject(i).getString("name");
+            contactList.add(currentContactName);
+            Log.d("Contacts", "Current contact name being parsed = " + currentContactName);
         }
 
         return contactList;
@@ -78,7 +87,7 @@ public class Contacts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        ListView contactListView = (ListView) findViewById(R.id.contact_ativity_contact_list);
+        contactListView = (ListView) findViewById(R.id.contact_ativity_contact_list);
 
         ContentResolver contentResolver = getContentResolver();
 
@@ -115,16 +124,47 @@ public class Contacts extends AppCompatActivity {
 
         final List<String> distinctNumbers = new ArrayList<>(contactNumbers);
 
+        String[] numbersBuffer = new String[distinctNumbers.size()];
+
+        new contactResolverTask().execute(distinctNumbers.toArray(numbersBuffer));
+    }
+
+    private void setValuesToUiListView(List<String> elements) {
+
         final ArrayAdapter<String> contactListAdapter = new ArrayAdapter<>(
                 Contacts.this,
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
-                distinctNumbers
+                elements
         );
 
-
-
         contactListView.setAdapter(contactListAdapter);
+    }
+
+    private class contactResolverTask extends AsyncTask<String, Void, List<String>> {
+        @Override
+        protected List<String> doInBackground(String... params) {
+            List<String> phoneNumbers = Arrays.asList(params);
+
+            try {
+                return getContacts(phoneNumbers);
+            } catch (JSONException e) {
+                Log.d("Contacts" , "Json parser exception");
+                e.printStackTrace();
+                return Collections.emptyList();
+            } catch (IOException e) {
+                Log.d("Contect" , "Network Exception");
+                e.printStackTrace();
+                return Collections.emptyList();
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(List<String> names) {
+            super.onPostExecute(names);
+            setValuesToUiListView(names);
+        }
     }
 
     @Override
