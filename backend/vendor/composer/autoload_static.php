@@ -255,6 +255,7 @@ class ComposerStaticInit38279f3509cba50b93b7c1e3a34531af
     public static $classMap = array (
         'AddPhoneNumberToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_06_02_035503_add_phone_number_to_users.php',
         'AddPhoneNumberToUsersAgain' => __DIR__ . '/../..' . '/database/migrations/2016_06_02_040456_add_phone_number_to_users_again.php',
+        'AddStatusAndLastSeenToUsers' => __DIR__ . '/../..' . '/database/migrations/2016_06_02_055100_add_status_and_last_seen_to_users.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

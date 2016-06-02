@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('auth/login', 'Login@getUser');
+Route::post('api/contacts' , 'Contacts@resolveContacts');
