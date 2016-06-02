@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65811742-7650-413c-b6e2-2321a44a78a0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Contacts.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/usimedia/chitchat/Contacts.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ChitChat3.iws" />
@@ -1778,7 +1777,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464862635693</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fields modifiers to private">
+      <created>1464863528940</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1464863528940</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1818,7 +1823,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added request to contacts api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added request to contacts api" />
+    <MESSAGE value="Fields modifiers to private" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fields modifiers to private" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
