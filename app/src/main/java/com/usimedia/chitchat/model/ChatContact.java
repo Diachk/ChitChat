@@ -9,9 +9,19 @@ public class ChatContact {
 
     private String name;
     private String statusMessage;
+    private String email;
     private Date lastSeen;
 
+
     public ChatContact() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
