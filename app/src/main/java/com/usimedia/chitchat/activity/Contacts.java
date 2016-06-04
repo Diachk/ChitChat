@@ -1,6 +1,7 @@
 package com.usimedia.chitchat.activity;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -10,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -48,7 +51,7 @@ public class Contacts extends AppCompatActivity {
 
     static {
         SERVICE_RESPONSE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
-        CONTACTS_SERVICE_URL = "http:192.168.1.3:8000/api/contacts";
+        CONTACTS_SERVICE_URL = "http:192.168.1.5:8000/api/contacts";
         HTTP_CLIENT = new OkHttpClient();
         JSON = MediaType.parse("application/json; charset=utf-8");
     }
@@ -186,7 +189,7 @@ public class Contacts extends AppCompatActivity {
         new contactResolverTask().execute(distinctNumbers.toArray(numbersBuffer));
     }
 
-    private void setValuesToUiListView(List<ChatContact> elements) {
+    private void setValuesToUiListView(final List<ChatContact> elements) {
 
         ChatContact[] elementsBuffer = new ChatContact[elements.size()];
 
@@ -195,6 +198,15 @@ public class Contacts extends AppCompatActivity {
                 elements.toArray(elementsBuffer));
 
         contactListView.setAdapter(contactListAdapter);
+
+        contactListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent toContactProfileActivity = new Intent(Contacts.this, ContactProfile.class);
+                toContactProfileActivity.putExtra("chat_contact", elements.get(position));
+                startActivity(toContactProfileActivity);
+            }
+        });
     }
 
 
