@@ -1,4 +1,4 @@
-package com.usimedia.chitchat;
+package com.usimedia.chitchat.activity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.usimedia.chitchat.R;
 import com.usimedia.chitchat.model.LoginModel;
 
 import org.json.JSONException;
